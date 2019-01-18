@@ -4,8 +4,14 @@ import './media.css'
 
 class Media extends Component {
 
+    state = {
+        author: this.props.author
+    }
+
     handlerClick = (event) => {
-        console.log(this.props.title)
+        this.setState({
+            author: 'El chido'
+        })
     }
 
     render() {
@@ -14,7 +20,7 @@ class Media extends Component {
                 <div className="Media-cover">
                     <img className="Media-image" src={this.props.image} alt="" width={260} height={160}/>
                     <h3 className="Media-title">{this.props.title}</h3>
-                    <p className="Media-author">{this.props.author}</p>
+                    <p className="Media-author">{this.state.author}</p>
                 </div>
             </div>
         )
