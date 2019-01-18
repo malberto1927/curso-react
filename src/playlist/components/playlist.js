@@ -1,10 +1,6 @@
 import React from 'react'
 import Media from './media'
 import './playlist.css'
-import Play from '../../icons/components/play'
-import Volumen from '../../icons/components/volumen'
-import Pause from '../../icons/components/pause'
-import Fullscreen from '../../icons/components/fullscreen'
 
 /* 
     Componente normal: Se escribe como una clase y extiende de Component
@@ -13,21 +9,15 @@ import Fullscreen from '../../icons/components/fullscreen'
  */
 
 function Playlist(props) {
-    const playlist = props.data.categories[0].playlist
-        // console.log(this.props.data)
-        return (
-            <div className="Playlist">
-                <Play size={100} color="blue"/>
-                <Volumen size={100} color="blue"/>
-                <Pause size={100} color="blue"/>
-                <Fullscreen size={100} color="blue"/>
-                {
-                    playlist.map(item => {
-                        return <Media {...item} key={item.id}/>
-                    })
-                }
-            </div>
-        )
+    return (
+        <div className="Playlist">
+            {
+                props.playlist.map(item => {
+                    return <Media {...item} key={item.id}/>
+                })
+            }
+        </div>
+    )
 }
 
 export default Playlist
