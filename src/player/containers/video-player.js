@@ -80,7 +80,7 @@ class VideoPlayer extends Component {
     render() {
         return (
             <VideoPlayerLayout setRef={this.setRef}>
-                <Title title="Esto es un video"/>
+                <Title title={this.props.title}/>
                 <Controls>
                     <PlayPause pause={this.state.pause} handleClick={this.togglePlay}/>
                     <Timer duration={this.state.duration} currentTime={this.state.currentTime}/>
@@ -89,7 +89,7 @@ class VideoPlayer extends Component {
                     <FullScreen handleFullScreenClick={this.handleFullScreenClick}/>
                 </Controls>
                 <Spinner active={this.state.loading}></Spinner>
-                <Video src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4" 
+                <Video src={this.props.src} 
                     pause={this.state.pause} 
                     autoplay={this.props.autoplay} 
                     handleLoadedMetadata={this.handleLoadedMetadata}
